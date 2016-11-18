@@ -1,0 +1,24 @@
+{
+  "name": "node_bbcode",
+  "version": "1.0.0",
+  "description": "Simple BBC package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patrykcieszkowski/node-bbcode.git"
+  },
+  "keywords": [
+    "node",
+    "bbc",
+    "bbcode",
+    "render"
+  ],
+  "author": "Patryk Cieszkowski",
+  "bugs": {
+    "url": "https://github.com/patrykcieszkowski/node-bbcode/issues"
+  },
+  "homepage": "https://github.com/patrykcieszkowski/node-bbcode#readme"
+}
