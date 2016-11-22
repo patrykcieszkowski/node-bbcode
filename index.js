@@ -1,5 +1,5 @@
 "use strict";
-const VERSION = '0.0.1'
+const VERSION = '1.0.0'
 var options = { classPrefix: 'bbcode', newLine: false, allowData: false, allowClasses: false }
 
 const parseAttributes = (tag, attrs) =>
@@ -38,6 +38,7 @@ const parseDataAttrs = (dataList) =>
 
 const parseTag = (string, tag, attrs, value) =>
 {
+  value = String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
   tag = tag.toLowerCase()
   let val = ''
   let parseAttr = parseAttributes(tag, /\[(.*?)\]/g.exec(string)[1])
@@ -106,6 +107,12 @@ const parseTag = (string, tag, attrs, value) =>
       if (tagDetails.attr.title) val += ' title="'+tagDetails.attr.title+'"'
       if (tagDetails.attr.alt) val += ' alt="'+tagDetails.attr.alt+'"'
       return val + '>'
+    case 'center':
+      return '<span style="text-align: center;" '+tagDetails.data+' class="'+ tagDetails.class +'">'+ value +'</span>'
+    case 'left':
+      return '<span style="text-align: left;" '+tagDetails.data+' class="'+ tagDetails.class +'">'+ value +'</span>'
+    case 'right':
+      return '<span style="text-align: right;" '+tagDetails.data+' class="'+ tagDetails.class +'">'+ value +'</span>'
   }
 
   return string
@@ -117,7 +124,7 @@ const bbcode = module.exports =
   {
     let regex = new RegExp('\\[(\\w+)(?:[= ]([^\\]]+))?]((?:.|[\r\n])*?)\\[/\\1]', 'ig')
 
-    options = Object.assign(options, newOptions)
+    if (newOptions) options = Object.assign(options, newOptions)
     if (newOptions.newLine) content = content.replace(/\r?\n/g, '<br>')
     return content.replace(regex, parseTag.bind())
   },
