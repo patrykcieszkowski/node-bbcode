@@ -27,10 +27,14 @@ Now you can use `BBCode` as a namespace for the module. Node-BBCode contains one
   - `options` - An object containing your settings for current rendering process.
 
 # Options [^](#options)
-  - `classPrefix` - prefix class to be inserted on all rendered tags. (Default: 'bbcode'): String
-  - `newLine` - whether or not to break line `<br>` on `\n` new line. (Default: false): Boolean
-  - `allowData` - whether or not to allow custom `data-` tags on BBCode tag. (Default: false): Boolean
-  - `allowClasses` - whether or not to allow custom classes on BBCode tag. (Default: false): Boolean
+  - `classPrefix` - (Default: 'bbcode'): `String`
+      - prefix class to be inserted on all rendered tags. 
+  - `newLine` - (Default: false): `Boolean`
+      - whether or not to break line `<br>` on `\n` new line. 
+  - `allowData` - (Default: false): `Boolean`
+      - whether or not to allow custom `data-` tags on BBCode tag. 
+  - `allowClasses` - (Default: false): `Boolean`
+      - whether or not to allow custom classes on BBCode tag. 
 
 For more details about `data-*` and `class` tags, see ['tags' section](#tags).
 
